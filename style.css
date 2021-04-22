@@ -279,6 +279,13 @@ input.input_btn:hover {
     float: left;
     width: 50%;
 }
+p {
+    text-align: center;
+    font-size: 40px;
+    margin-top: 10px;
+    color: #febc2b;
+    font-family: Inter;
+}
 
 /* body end */
 
@@ -379,4 +386,10 @@ input.input_btn:hover {
 .menu_div {
     position: absolute;
     right: 6px;
+}
+p {
+    text-align: center;
+    font-size: 40px;
+    margin-top: 10px;
+    color: #febc2b;
 }
