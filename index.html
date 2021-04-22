@@ -14,12 +14,6 @@
 
 
 <body>
-        <nav class="navbar navbar-dark bg-primary mb-3">
-            <div class="container">
-                <!-- <img src="images/logo.jpg" id="userIcon"> -->
-            </div>
-            <!-- <button class="MuiButtonBase-root MuiIconButton-root jss546 jss547 MuiIconButton-sizeSmall" tabindex="0" type="button" -->
-
     <p id="demo"></p>
     <script>
         var time = "Apr 24, 2021 15:37:25"
@@ -54,7 +48,7 @@
                     // If the count down is over, write some text
                     if (distance < 0) {
                         clearInterval(x);
-                        document.getElementById("demo").innerHTML = "EXPIRED";
+                        document.getElementById("demo").innerHTML = "STARTED";
                     }
                 }, 1000);
 
@@ -63,6 +57,13 @@
         file.send(null);
 
     </script>
+        <nav class="navbar navbar-dark bg-primary mb-3">
+            <div class="container">
+                <!-- <img src="images/logo.jpg" id="userIcon"> -->
+            </div>
+            <!-- <button class="MuiButtonBase-root MuiIconButton-root jss546 jss547 MuiIconButton-sizeSmall" tabindex="0" type="button">
+
+
                     <span class="MuiIconButton-label">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M10.6875 3.125V1.0625H9.3125V3.125H10.6875ZM15.8337 3.19402L14.3753 4.65238L15.3476 5.62465L16.806 4.16629L15.8337 3.19402ZM1.0625 10.6875H3.125V9.3125H1.0625V10.6875ZM16.875 10.6875H18.9375V9.3125H16.875V10.6875ZM4.65238 14.3753L3.19402 15.8337L4.16629 16.806L5.62465 15.3476L4.65238 14.3753ZM16.806 15.8337L15.3476 14.3753L14.3753 15.3476L15.8337 16.806L16.806 15.8337ZM10.6875 18.9375V16.875H9.3125V18.9375H10.6875ZM5.45836 4.8288L4 3.37045L3.02773 4.34272L4.48608 5.80108L5.45836 4.8288ZM7.25 10C7.25 8.48122 8.48122 7.25 10 7.25C11.5188 7.25 12.75 8.48122 12.75 10C12.75 11.5188 11.5188 12.75 10 12.75C8.48122 12.75 7.25 11.5188 7.25 10ZM10 5.875C7.72183 5.875 5.875 7.72183 5.875 10C5.875 12.2782 7.72183 14.125 10 14.125C12.2782 14.125 14.125 12.2782 14.125 10C14.125 7.72183 12.2782 5.875 10 5.875Z" fill="#B7BECB">
