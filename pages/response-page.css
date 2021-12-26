@@ -30,3 +30,7 @@
   margin: 10px;
   padding: 10px;
 }
+
+body {
+  background: radial-gradient(ellipse at center, #ba0001 0%, #630505 100%);
+}
