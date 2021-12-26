@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giveaway!</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+    <p id="demo"></p>
+    <script>
+        var time = "Apr 24, 2021 15:37:25"
+        var file = new XMLHttpRequest() || new ActiveXObject('MSXML2.XMLHTTP');
+        file.open("get", "https://maxwelleguakun.pythonanywhere.com/time", true);
+        file.onreadystatechange = function() {
+            if (file.status === 200 && file.readyState === 4) {
+                time = file.responseText; // fmt "Apr 24, 2021 15:37:25"
+
+                // Set the date we're counting down to
+                var countDownDate = new Date(time).getTime();
+
+                // Update the count down every 1 second
+                var x = setInterval(function() {
+
+                    // Get today's date and time
+                    var now = new Date().getTime();
+
+                    // Find the distance between now and the count down date
+                    var distance = countDownDate - now;
+
+                    // Time calculations for days, hours, minutes and seconds
+                    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                    // Output the result in an element with id="demo"
+                    document.getElementById("demo").innerHTML = days + "d " + hours + "h " +
+                    minutes + "m " + seconds + "s ";
+
+                    // If the count down is over, write some text
+                    if (distance < 0) {
+                        clearInterval(x);
+                        document.getElementById("demo").innerHTML = "STARTED";
+                    }
+                }, 1000);
+
+            }
+        }
+        file.send(null);
+
+    </script>
+        <nav class="navbar navbar-dark bg-primary mb-3">
+            <div class="container">
+                <!-- <img src="images/logo.jpg" id="userIcon"> -->
+            </div>
+            <!-- <button class="MuiButtonBase-root MuiIconButton-root jss546 jss547 MuiIconButton-sizeSmall" tabindex="0" type="button">
+
+
+                    <span class="MuiIconButton-label">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M10.6875 3.125V1.0625H9.3125V3.125H10.6875ZM15.8337 3.19402L14.3753 4.65238L15.3476 5.62465L16.806 4.16629L15.8337 3.19402ZM1.0625 10.6875H3.125V9.3125H1.0625V10.6875ZM16.875 10.6875H18.9375V9.3125H16.875V10.6875ZM4.65238 14.3753L3.19402 15.8337L4.16629 16.806L5.62465 15.3476L4.65238 14.3753ZM16.806 15.8337L15.3476 14.3753L14.3753 15.3476L15.8337 16.806L16.806 15.8337ZM10.6875 18.9375V16.875H9.3125V18.9375H10.6875ZM5.45836 4.8288L4 3.37045L3.02773 4.34272L4.48608 5.80108L5.45836 4.8288ZM7.25 10C7.25 8.48122 8.48122 7.25 10 7.25C11.5188 7.25 12.75 8.48122 12.75 10C12.75 11.5188 11.5188 12.75 10 12.75C8.48122 12.75 7.25 11.5188 7.25 10ZM10 5.875C7.72183 5.875 5.875 7.72183 5.875 10C5.875 12.2782 7.72183 14.125 10 14.125C12.2782 14.125 14.125 12.2782 14.125 10C14.125 7.72183 12.2782 5.875 10 5.875Z" fill="#B7BECB">
+
+                            </path>
+                        </svg>
+                    </span>
+                    <span class="MuiTouchRipple-root">
+
+                    </span>
+                </button> -->
+
+        </nav>
+
+
+
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+        <div class="page_wrapper">
+            <div class="wrap_row">
+                <div class="wrap_box" id="wrap">
+                    <form method="GET" action="https://maxwelleguakun.pythonanywhere.com/poirot" class="form">
+                        <div class="form_wrap">
+                            <div class="box_title">GiveAway :)</div>
+                            <label for="">Phone number</label><br>
+                            <input type="text" class="input_fld input_fld1" name="num" required><br>
+                            <label for="">Name</label><br>
+                            <input type="text" class="input_fld " name="handle" required><br>
+                            <input type="submit" value="Collect my own" class="input_btn"><br>
+                        </div>
+                    </form>
+                    <div class="box_2">
+                        <div class="pr_box">
+                            <div class="ch_box">Remaining Balance</div>
+                            <div id="balance" class="ch_box2">Loading</div>
+                        </div>
+                        <div class="pr_box">
+                            <div class="ch_box">Fastest Finger</div>
+                            <div id="ffing" class="ch_box2">Loading</div>
+                        </div>
+                        <div class="pr_box">
+                            <div class="ch_box">Your Projected Airtime</div>
+                            <div id="proj" class="ch_box2">Loading</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <footer>
+        <div class="footer_wrap">
+            <ul>
+                <li><a href="https://time.is">Check time accuracy</a></li> <!-- Twitter-->
+                <li><a href="https://maxwelleguakun.pythonanywhere.com/testnum">Check if num OK</a></li> <!-- Github-->
+                <!-- <li><a href="">Privacy Policy</a></li> -->
+                <!-- <li><a href="">Terms of service</a></li> -->
+            </ul>
+        </div>
+    </footer>
+    <script>
+        function load(filename, id) {
+            var file = new XMLHttpRequest() || new ActiveXObject('MSXML2.XMLHTTP');
+            file.open("get", filename, true);
+            file.onreadystatechange = function() {
+                if (file.status === 200){
+                    if (file.readyState === 4) {  // Makes sure the document is ready to parse
+                        document.getElementById(id).innerHTML = file.responseText;
+                    }
+                }
+            }
+            file.send(null);
+        }
+        $(document).ready(function() {
+            window.onLoad = load("https://maxwelleguakun.pythonanywhere.com/projected", "proj");
+            window.onLoad = load("https://maxwelleguakun.pythonanywhere.com/ffing", "ffing");
+            window.onLoad = load("https://maxwelleguakun.pythonanywhere.com/balance", "balance");
+            if ($(window).width() < 900) {
+                $(".footer_wrap").hide();
+            }
+        });
+        $(document).ready(function() {
+            if ($(window).width() < 900) {
+                $(".header_wrap").show();
+            } else {
+                $(".header_wrap").hide();
+            }
+        });
+        $(".menu-btn").click(function() {
+            $(".header_navs").slideToggle(500);
+        });
+        const menuBtn = document.querySelector('.menu-btn');
+        let menuOpen = false;
+        menuBtn.addEventListener('click', () => {
+            if (!menuOpen) {
+                menuBtn.classList.add('open');
+                menuOpen = true;
+            } else {
+                menuBtn.classList.remove('open');
+                menuOpen = false;
+            }
+        });
+    </script>
+
+    <style>
+        p {
+            text-align: center;
+            font-size: 40px;
+            margin-top: 10px;
+            color: #febc2b;
+        }
+    </style>
+</body>
+
+</html>
+
