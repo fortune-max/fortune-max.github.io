@@ -10,58 +10,73 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
+    <script src="index.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .source-code {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: block;
+            background-color: #ff0000;
+            color: white;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: normal;
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 3px;
+        }
+    </style>
 </head>
 
+<body onload="run()">
 
-<body>
     <p id="demo"></p>
     <script>
         var time = "Apr 24, 2021 15:37:25"
-        var file = new XMLHttpRequest() || new ActiveXObject('MSXML2.XMLHTTP');
+        var file = new XMLHttpRequest() || new ActiveXObject(' MSXML2.XMLHTTP ');
         file.open("get", "https://maxwelleguakun.pythonanywhere.com/time", true);
         file.onreadystatechange = function() {
             if (file.status === 200 && file.readyState === 4) {
                 time = file.responseText; // fmt "Apr 24, 2021 15:37:25"
 
-                // Set the date we're counting down to
-                var countDownDate = new Date(time).getTime();
+                // Set the date we're counting down to var countDownDate=n ew Date(time).getTime(); // Update the count down every 1 second var x=s etInterval(function() { // Get today 's date and time
+                var now = new Date().getTime();
 
-                // Update the count down every 1 second
-                var x = setInterval(function() {
+                // Find the distance between now and the count down date
+                var distance = countDownDate - now;
 
-                    // Get today's date and time
-                    var now = new Date().getTime();
+                // Time calculations for days, hours, minutes and seconds
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-                    // Find the distance between now and the count down date
-                    var distance = countDownDate - now;
-
-                    // Time calculations for days, hours, minutes and seconds
-                    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                    // Output the result in an element with id="demo"
-                    document.getElementById("demo").innerHTML = days + "d " + hours + "h " +
+                // Output the result in an element with id="demo"
+                document.getElementById("demo").innerHTML = days + "d " + hours + "h " +
                     minutes + "m " + seconds + "s ";
 
-                    // If the count down is over, write some text
-                    if (distance < 0) {
-                        clearInterval(x);
-                        document.getElementById("demo").innerHTML = "STARTED";
-                    }
-                }, 1000);
+                // If the count down is over, write some text
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.getElementById("demo").innerHTML = "STARTED";
+                }
+            }, 1000);
 
-            }
+        }
         }
         file.send(null);
-
     </script>
-        <nav class="navbar navbar-dark bg-primary mb-3">
-            <div class="container">
-                <!-- <img src="images/logo.jpg" id="userIcon"> -->
-            </div>
-            <!-- <button class="MuiButtonBase-root MuiIconButton-root jss546 jss547 MuiIconButton-sizeSmall" tabindex="0" type="button">
+    <nav class="navbar navbar-dark bg-primary mb-3">
+        <div class="container">
+            <!-- <img src="images/logo.jpg" id="userIcon"> -->
+        </div>
+        <!-- <button class="MuiButtonBase-root MuiIconButton-root jss546 jss547 MuiIconButton-sizeSmall" tabindex="0" type="button">
 
 
                     <span class="MuiIconButton-label">
@@ -76,47 +91,84 @@
                     </span>
                 </button> -->
 
-        </nav>
+    </nav>
 
 
+    <div class="snowflakes" aria-hidden="true">
+        <div class="snowflake">
+            ❅
+        </div>
+        <div class="snowflake">
+            ❅
+        </div>
+        <div class="snowflake">
+            ❆
+        </div>
+        <div class="snowflake">
+            ❄
+        </div>
+        <div class="snowflake">
+            ❅
+        </div>
+        <div class="snowflake">
+            ❆
+        </div>
+        <div class="snowflake">
+            ❄
+        </div>
+        <div class="snowflake">
+            ❅
+        </div>
+        <div class="snowflake">
+            ❆
+        </div>
+        <div class="snowflake">
+            ❄
+        </div>
+    </div>
 
-        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
-        <div class="page_wrapper">
-            <div class="wrap_row">
-                <div class="wrap_box" id="wrap">
-                    <form method="GET" action="https://maxwelleguakun.pythonanywhere.com/poirot" class="form">
-                        <div class="form_wrap">
-                            <div class="box_title">GiveAway :)</div>
-                            <label for="">Phone number</label><br>
-                            <input type="text" class="input_fld input_fld1" name="num" required><br>
-                            <label for="">Name</label><br>
-                            <input type="text" class="input_fld " name="handle" required><br>
-                            <input type="submit" value="Collect my own" class="input_btn"><br>
-                        </div>
-                    </form>
-                    <div class="box_2">
-                        <div class="pr_box">
-                            <div class="ch_box">Remaining Balance</div>
-                            <div id="balance" class="ch_box2">Loading</div>
-                        </div>
-                        <div class="pr_box">
-                            <div class="ch_box">Fastest Finger</div>
-                            <div id="ffing" class="ch_box2">Loading</div>
-                        </div>
-                        <div class="pr_box">
-                            <div class="ch_box">Your Projected Airtime</div>
-                            <div id="proj" class="ch_box2">Loading</div>
-                        </div>
+    <div class="page_wrapper">
+        <div class="wrap_row">
+            <div class="wrap_box" id="wrap" style="background:-moz-element(#scene);g:-webkit-canvas(scene); ">
+                <form method="GET" action="https://maxwelleguakun.pythonanywhere.com/poirot" class="form">
+                    <div class="form_wrap">
+                        <div class="box_title">GiveAway :)</div>
+                        <label for="">Phone number</label><br>
+                        <input type="text" class="input_fld input_fld1" name="num" required><br>
+                        <label for="">Name</label><br>
+                        <input type="text" class="input_fld " name="handle" required><br>
+                        <input type="submit" value="Collect my own" class="input_btn"><br>
+                    </div>
+                </form>
+                <div class="box_2">
+                    <div class="pr_box">
+                        <div class="ch_box">Remaining Balance</div>
+                        <div id="balance" class="ch_box2">Loading</div>
+                    </div>
+                    <div class="pr_box">
+                        <div class="ch_box">Fastest Finger</div>
+                        <div id="ffing" class="ch_box2">Loading</div>
+                    </div>
+                    <div class="pr_box">
+                        <div class="ch_box">Your Projected Airtime</div>
+                        <div id="proj" class="ch_box2">Loading</div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <canvas id="scene" width="1000px" height="1000px" style="display:none;">
+    </canvas>
+
     <footer>
         <div class="footer_wrap">
             <ul>
-                <li><a href="https://time.is">Check time accuracy</a></li> <!-- Twitter-->
-                <li><a href="https://maxwelleguakun.pythonanywhere.com/testnum">Check if num OK</a></li> <!-- Github-->
+                <li><a href="https://time.is">Check time accuracy</a></li>
+                <!-- Twitter-->
+                <li><a href="https://maxwelleguakun.pythonanywhere.com/testnum">Check if num OK</a></li>
+                <!-- Github-->
                 <!-- <li><a href="">Privacy Policy</a></li> -->
                 <!-- <li><a href="">Terms of service</a></li> -->
             </ul>
@@ -124,11 +176,11 @@
     </footer>
     <script>
         function load(filename, id) {
-            var file = new XMLHttpRequest() || new ActiveXObject('MSXML2.XMLHTTP');
+            var file = new XMLHttpRequest() || new ActiveXObject('MSXML2.XMLHTTP ');
             file.open("get", filename, true);
             file.onreadystatechange = function() {
-                if (file.status === 200){
-                    if (file.readyState === 4) {  // Makes sure the document is ready to parse
+                if (file.status === 200) {
+                    if (file.readyState === 4) { // Makes sure the document is ready to parse
                         document.getElementById(id).innerHTML = file.responseText;
                     }
                 }
@@ -153,14 +205,14 @@
         $(".menu-btn").click(function() {
             $(".header_navs").slideToggle(500);
         });
-        const menuBtn = document.querySelector('.menu-btn');
+        const menuBtn = document.querySelector('.menu-btn ');
         let menuOpen = false;
-        menuBtn.addEventListener('click', () => {
+        menuBtn.addEventListener('click ', () => {
             if (!menuOpen) {
-                menuBtn.classList.add('open');
+                menuBtn.classList.add('open ');
                 menuOpen = true;
             } else {
-                menuBtn.classList.remove('open');
+                menuBtn.classList.remove('open ');
                 menuOpen = false;
             }
         });
@@ -177,4 +229,3 @@
 </body>
 
 </html>
-
