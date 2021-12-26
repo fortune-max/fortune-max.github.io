@@ -28,6 +28,7 @@
         <h2>Uh Oh!</h2>
         <h3 class="response-msg">
           <span id="error-msg"></span>
+          {{flask_err_msg}}
         </h3>
         <img
           src="/christmas-update/you-naughty.gif"
@@ -43,7 +44,7 @@
         "Sorry, your phone number cannot participate in this giveaway";
 
       let giveawayNotStarted = false;
-      let invalidNumber = true;
+      let invalidNumber = false;
 
       if (giveawayNotStarted) {
         errorMsg.innerHTML = notYetTimeMsg;
