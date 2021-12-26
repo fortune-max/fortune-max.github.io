@@ -32,43 +32,5 @@
 }
 
 body {
-  background: -moz-radial-gradient(
-    center,
-    ellipse cover,
-    #ba0001 0%,
-    #630505 100%
-  );
-  /* FF3.6+ */
-  background: -webkit-gradient(
-    radial,
-    center center,
-    0px,
-    center center,
-    100%,
-    color-stop(0%, #ba0001),
-    color-stop(100%, #630505)
-  );
-  /* Chrome,Safari4+ */
-  background: -webkit-radial-gradient(
-    center,
-    ellipse cover,
-    #ba0001 0%,
-    #630505 100%
-  );
-  /* Chrome10+,Safari5.1+ */
-  background: -o-radial-gradient(
-    center,
-    ellipse cover,
-    #ba0001 0%,
-    #630505 100%
-  );
-  /* Opera 12+ */
-  background: -ms-radial-gradient(
-    center,
-    ellipse cover,
-    #ba0001 0%,
-    #630505 100%
-  );
-  /* IE10+ */
   background: radial-gradient(ellipse at center, #ba0001 0%, #630505 100%);
 }
