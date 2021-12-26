@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Uh Oh!</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../style.css" />
+    <link href="./response-page.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/christmas-update/christmas.css" />
+    <script src="/christmas-update/christmas.js" defer></script>
+  </head>
+  <body>
+    <div class="christmas-bg">
+      <div class="snow-base"></div>
+      <div class="snow-container"></div>
+    </div>
+    <div class="content-container">
+      <div class="content">
+        <h2>Uh Oh!</h2>
+        <h3 class="response-msg">
+          <span id="error-msg"></span>
+        </h3>
+        <img
+          src="/christmas-update/you-naughty.gif"
+          alt="naughty-gif"
+          width="50%"
+        />
+      </div>
+    </div>
+    <script>
+      const errorMsg = document.querySelector("#error-msg");
+      let notYetTimeMsg = "It's not yet time for the giveaway";
+      let invalidNumMsg =
+        "Sorry, your phone number cannot participate in this giveaway";
+
+      let giveawayNotStarted = false;
+      let invalidNumber = true;
+
+      if (giveawayNotStarted) {
+        errorMsg.innerHTML = notYetTimeMsg;
+      } else if (invalidNumber) {
+        errorMsg.innerHTML = invalidNumMsg;
+      }
+    </script>
+  </body>
+</html>

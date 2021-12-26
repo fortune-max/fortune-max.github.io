@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Congrats!</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Licorice&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../style.css" />
+    <link href="./response-page.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/christmas-update/christmas.css" />
+    <script src="/christmas-update/christmas.js" defer></script>
+  </head>
+  <body>
+    <div class="christmas-bg">
+      <div class="snow-base"></div>
+      <div class="snow-container"></div>
+    </div>
+    <div class="content-container">
+      <div class="content">
+        <h2 class="christmas-msg">
+          Merry <br />
+          Christmas
+        </h2>
+        <h3 class="response-msg">
+          Congratulations! <br />
+          You won <span id="amount"></span>
+        </h3>
+      </div>
+    </div>
+
+    <script>
+      let htmlCurrencyCode = "&#8358;";
+      let amountWon = 500;
+
+      const amountMsg = document.querySelector("#amount");
+      amountMsg.innerHTML = htmlCurrencyCode + amountWon;
+    </script>
+  </body>
+</html>

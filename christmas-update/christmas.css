@@ -1,0 +1,75 @@
+.christmas-bg {
+  background: none;
+  z-index: -1;
+  display: block;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+}
+
+.snow-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  filter: blur(0.5px);
+}
+
+.snowflake {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  animation: flake_falling linear infinite;
+}
+
+@keyframes flake_falling {
+  0% {
+    top: -50px;
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+    display: none;
+  }
+}
+
+.snow-base {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: url("./christmas-bg.png");
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: repeat-x;
+  line-height: 0;
+}
+
+.snow-base img {
+  width: 100%;
+}
+
+#demo {
+  margin-top: 50px;
+  color: #1e792c;
+}
+
+.wrap_box {
+  background: none;
+  margin-top: -15px;
+}
+
+.box_2 {
+  background: #071227b7;
+}
