@@ -100,7 +100,6 @@
         })
         .then(response => response.json())
         .then(data => {
-          console.log('Success:', data);
           if (data.detail === 'Number not allowed for giveaway') {
             window.location.href = 'pages/failed.html?error=invalid_number';
           } else if (data.detail === 'Giveaway not started yet') {
