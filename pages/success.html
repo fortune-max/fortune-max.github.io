@@ -43,7 +43,8 @@
 
     <script>
       let htmlCurrencyCode = "&#8358;";
-      let amountWon = 500;
+      const urlParams = new URLSearchParams(window.location.search);
+      const amountWon = urlParams.get("amount") || 0;
 
       const amountMsg = document.querySelector("#amount");
       amountMsg.innerHTML = htmlCurrencyCode + amountWon;

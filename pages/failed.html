@@ -28,7 +28,6 @@
         <h2>Uh Oh!</h2>
         <h3 class="response-msg">
           <span id="error-msg"></span>
-          {{flask_err_msg}}
         </h3>
         <img
           src="/christmas-update/you-naughty.gif"
@@ -38,19 +37,18 @@
       </div>
     </div>
     <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const error = urlParams.get("error");
+
       const errorMsg = document.querySelector("#error-msg");
-      let notYetTimeMsg = "It's not yet time for the giveaway";
-      let invalidNumMsg =
-        "Sorry, your phone number cannot participate in this giveaway";
-
-      let giveawayNotStarted = false;
-      let invalidNumber = false;
-
-      if (giveawayNotStarted) {
-        errorMsg.innerHTML = notYetTimeMsg;
-      } else if (invalidNumber) {
-        errorMsg.innerHTML = invalidNumMsg;
-      }
+      if (error === 'not_started')
+        errorMsg.innerHTML = "It's not yet time for the giveaway";
+      else if (error === 'invalid_number')
+        errorMsg.innerHTML = "Sorry you need this number to be part of the group";
+      else if (error === 'already_credited')
+        errorMsg.innerHTML = "Sorry you have already been credited";
+      else if (error === 'exhausted')
+        errorMsg.innerHTML = "Sorry, the giveaway amount has been exhausted";
     </script>
   </body>
 </html>
