@@ -24,16 +24,12 @@
     <div class="page_wrapper">
       <div class="wrap_row">
         <div class="wrap_box" id="wrap">
-          <form
-            method="GET"
-            action="https://giveaway-production-6436.up.railway.app/credit"
-            class="form"
-          >
             <div class="form_wrap">
               <div class="box_title">GiveAway :)</div>
               
               <label for="">Phone number</label><br />
               <input
+                id="number"
                 type="text"
                 class="input_fld input_fld1"
                 name="number"
@@ -42,6 +38,7 @@
 
               <label for="">Name</label><br />
               <input
+                id="handle"
                 type="text"
                 class="input_fld input_fld1"
                 name="handle"
@@ -49,12 +46,12 @@
               /><br />
 
               <input
-                type="submit"
+                type="button"
                 value="Collect my own"
                 class="input_btn"
+                onclick="submitForm()"
               /><br />
             </div>
-          </form>
           <div class="box_2">
             <div class="pr_box">
               <div class="ch_box">Remaining Balance</div>
@@ -87,6 +84,41 @@
       </div>
     </footer>
     <script>
+      function submitForm() {
+        const number = document.getElementById('number').value;
+        const handle = document.getElementById('handle').value;
+        if (!number || !handle) {
+          alert('Please fill in all fields');
+          return;
+        }
+
+        fetch(`https://giveaway-production-6436.up.railway.app/credit?number=${encodeURIComponent(number)}&handle=${encodeURIComponent(handle)}`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log('Success:', data);
+          if (data.detail === 'Number not allowed for giveaway') {
+            window.location.href = 'pages/failed.html?error=invalid_number';
+          } else if (data.detail === 'Giveaway not started yet') {
+            window.location.href = 'pages/failed.html?error=not_started';
+          } else if (data.detail === 'No funds left for giveaway') {
+            window.location.href = 'pages/failed.html?error=exhausted';
+          } else if (data.detail === 'Number has been credited before') {
+            window.location.href = 'pages/failed.html?error=already_credited';
+          } else if (data.message) {
+            const amount = data.message.split('credited with ')[1];
+            window.location.href = 'pages/success.html?amount=' + amount;
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          window.location.href = 'failure.html?error=' + encodeURIComponent(error.message);
+        });
+      }
       fetch("https://giveaway-production-6436.up.railway.app/giveaway-summary")
         .then(response => response.json())
         .then(data => {
