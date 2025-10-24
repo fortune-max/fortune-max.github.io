@@ -4,9 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Giveaway!</title>
+    <title>Mobile Topup Giveaway - Christmas Special</title>
+    <meta name="description" content="Join our exclusive mobile topup giveaway! Win airtime credits by being the fastest to claim your prize." />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
@@ -15,75 +16,191 @@
   </head>
 
   <body>
-    <p id="demo"></p>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <h2>🎄 Topup Giveaway</h2>
+        </div>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="/" class="nav-link active">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="/how-to.html" class="nav-link">How It Works</a>
+          </li>
+          <li class="nav-item">
+            <a href="/privacy.html" class="nav-link">Privacy Policy</a>
+          </li>
+          <li class="nav-item">
+            <a href="/business.html" class="nav-link">Business Info</a>
+          </li>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Countdown Timer -->
+    <div class="countdown-container">
+      <p id="demo" class="countdown-timer"></p>
+    </div>
+
+    <!-- Christmas Background -->
     <div class="christmas-bg">
       <div class="snow-base"></div>
       <div class="snow-container"></div>
     </div>
 
+    <!-- Main Content -->
     <div class="page_wrapper">
       <div class="wrap_row">
         <div class="wrap_box" id="wrap">
-            <div class="form_wrap">
-              <div class="box_title">GiveAway :)</div>
-              
-              <label for="">Phone number</label><br />
+          <!-- Hero Section -->
+          <div class="hero-section">
+            <h1 class="hero-title">🎁 Christmas Mobile Topup Giveaway</h1>
+            <p class="hero-subtitle">Join our exclusive group giveaway and win airtime credits!</p>
+            <div class="info-cards">
+              <div class="info-card">
+                <span class="info-icon">📱</span>
+                <span class="info-text">Exclusive Group Members Only</span>
+              </div>
+              <div class="info-card">
+                <span class="info-icon">⚡</span>
+                <span class="info-text">First Come, First Served</span>
+              </div>
+              <div class="info-card">
+                <span class="info-icon">🎯</span>
+                <span class="info-text">Instant Airtime Credit</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form Section -->
+          <div class="form_wrap">
+            <div class="box_title">Claim Your Prize</div>
+            
+            <div class="form-group">
+              <label for="number">Phone Number</label>
               <input
                 id="number"
-                type="text"
+                type="tel"
                 class="input_fld input_fld1"
                 name="number"
+                placeholder="Enter your phone number"
                 required
-              /><br />
+              />
+            </div>
 
-              <label for="">Name</label><br />
+            <div class="form-group">
+              <label for="handle">Full Name</label>
               <input
                 id="handle"
                 type="text"
                 class="input_fld input_fld1"
                 name="handle"
+                placeholder="Enter your full name"
                 required
-              /><br />
+              />
+            </div>
 
-              <input
-                type="button"
-                value="Collect my own"
-                class="input_btn"
-                onclick="submitForm()"
-              /><br />
-            </div>
+            <button
+              type="button"
+              class="input_btn"
+              onclick="submitForm()"
+            >
+              🎁 Claim My Prize
+            </button>
+          </div>
+
+          <!-- Stats Section -->
           <div class="box_2">
+            <h3 class="stats-title">Giveaway Statistics</h3>
             <div class="pr_box">
-              <div class="ch_box">Remaining Balance</div>
-              <div id="balance" class="ch_box2">Loading</div>
+              <div class="ch_box">💰 Remaining Balance</div>
+              <div id="balance" class="ch_box2">Loading...</div>
             </div>
             <div class="pr_box">
-              <div class="ch_box">Fastest Finger</div>
-              <div id="ffing" class="ch_box2">Loading</div>
+              <div class="ch_box">🏆 Fastest Winner</div>
+              <div id="ffing" class="ch_box2">Loading...</div>
             </div>
             <div class="pr_box">
-              <div class="ch_box">Your Projected Airtime</div>
-              <div id="proj" class="ch_box2">Loading</div>
+              <div class="ch_box">📊 Projected Prize</div>
+              <div id="proj" class="ch_box2">Loading...</div>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="quick-links">
+            <h3>Quick Tools</h3>
+            <div class="links-grid">
+              <a href="/testnum.html" class="quick-link">
+                <span class="link-icon">✅</span>
+                <span class="link-text">Check Number Status</span>
+              </a>
+              <a href="https://time.is" target="_blank" class="quick-link">
+                <span class="link-icon">🕐</span>
+                <span class="link-text">Check Time Accuracy</span>
+              </a>
+              <a href="/how-to.html" class="quick-link">
+                <span class="link-icon">❓</span>
+                <span class="link-text">How It Works</span>
+              </a>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <footer>
+    <!-- Footer -->
+    <footer class="footer">
       <div class="footer_wrap">
-        <ul>
-          <li>
-            <a href="https://time.is">Check time accuracy</a>
-          </li>
-          <li>
-            <a href="/testnum.html">
-              Check if num OK
-            </a>
-          </li>
-        </ul>
+        <div class="footer-content">
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="/how-to.html">How It Works</a></li>
+              <li><a href="/testnum.html">Check Number Status</a></li>
+              <li><a href="https://time.is" target="_blank">Time Accuracy</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="/privacy.html">Privacy Policy</a></li>
+              <li><a href="/business.html">Business Info</a></li>
+              <li><a href="/business.html#refund">Refund Policy</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Contact</h4>
+            <p>For support and inquiries</p>
+            <p>Email: fortmax120@gmail.com</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Mobile Topup Giveaway. All rights reserved.</p>
+        </div>
       </div>
     </footer>
     <script>
+      // Mobile Navigation Toggle
+      const hamburger = document.querySelector('.hamburger');
+      const navMenu = document.querySelector('.nav-menu');
+
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+      });
+
+      // Close mobile menu when clicking on a link
+      document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+      }));
+
       function submitForm() {
         const number = document.getElementById('number').value;
         const handle = document.getElementById('handle').value;
@@ -91,6 +208,12 @@
           alert('Please fill in all fields');
           return;
         }
+
+        // Show loading state
+        const submitBtn = document.querySelector('.input_btn');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '⏳ Processing...';
+        submitBtn.disabled = true;
 
         fetch(`https://giveaway-production-6436.up.railway.app/credit?number=${encodeURIComponent(number)}&handle=${encodeURIComponent(handle)}`, {
           method: 'GET',
@@ -115,7 +238,12 @@
         })
         .catch(error => {
           console.error('Error:', error);
-          window.location.href = 'failure.html?error=' + encodeURIComponent(error.message);
+          window.location.href = 'pages/failed.html?error=network_error';
+        })
+        .finally(() => {
+          // Reset button state
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
         });
       }
       fetch("https://giveaway-production-6436.up.railway.app/giveaway-summary")
